@@ -8,10 +8,20 @@ Learn to Use IsaacLab and add some common utils for convenient using.
  - 3_Learn_About_Applauncher.py: How to use argparse to setup simulation and applauncher
  - Basic_utils.py: The utils about quickly build Isaac Lab applauncher and simulation.
 ### Assets
- - 4_Interacting_with_rigid_objects: How to interact with rigid objects.
+ - 4_Interacting_with_rigid_objects.py: How to interact with rigid objects.
  - 5_Interacting_with_an_articulation.py: How to interact with articulations(cartpole env as the example).
  - 6_Interacting_with_deformable_object.py: How to interact with deformable objects. (Simulation of deformable objects can only with gpu)
-
+### Scene_and_Envs
+ - 7_Create_an_interacting_scene.py: How to Create a scene contain ground, light and objects.
+ - 8_Create_a_Manager_Based_env.py: How to create a scene used manager scene class for cartpole env.
+ - 9_Create_a_Manager_Env_for_Quadruped.py: Like tutorial 8, but change the env to quadruped.
+### RL_Policy
+ - 10_Create_a_Manager_based_RL_Env
+   - 10.1 cartpole_env_cfg.py: Create a Manager RL Scene cfg class for cartpole env to train RL policy
+   - 10.2 run_cartpole_rl_env: Run the sample action to the created cfg env.
+ - 11_Create_a_Direct_Workflow_RL_Env
+   - direct_rl_scene_cartpole_env.py: A more usefully env for RL scene create by direct RL env scene
+   - train_by_rl_games: train the RL agent for direct_cartpole_env
 
 ---
 # Isaac Lab
