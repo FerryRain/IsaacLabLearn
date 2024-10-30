@@ -86,6 +86,7 @@ def run_simulator(sim: sim_utils.SimulationContext, entities: dict[str, Deformab
 
         # Update the kinematic target for cubes at index 0 and index 3
         # Slightly move the cube in the z-direction by picking the vertex at index 0
+        # nodal_kinematic_target[[0, 3], 250, 1] += 0.001
         nodal_kinematic_target[[0, 3], 0, 2] += 0.001
         # Set vertex at index 0 to be kinematically constrained
         # 0: constrained, 1: free
