@@ -7,7 +7,7 @@
 """
 
 import argparse
-from Basic.Basic_utils import create_simulator,create_applauncher
+from Basic.Basic_utils import create_applauncher
 argparse = argparse.ArgumentParser(description="Tutorial on running the cartpole RL env")
 argparse.add_argument("--num_envs", type=int, default=32, help="Number of environments")
 argparse.add_argument("--debug_vis", type=bool, default=True, help="Debug visualization")
