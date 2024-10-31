@@ -7,7 +7,7 @@
 """
 from __future__ import annotations
 
-from omni.isaac.lab_assets import HUMANOID_CFG
+from omni.isaac.lab_assets import HUMANOID_CFG, H1_CFG
 
 import omni.isaac.lab.sim as sim_utils
 from omni.isaac.lab.assets import ArticulationCfg
@@ -25,8 +25,13 @@ class UnitreeH1Cfg(DirectRLEnvCfg):
     episode_length_s = 15.0
     decimation = 2
     action_scale = 1.0
-    action_space = 21
-    observation_space = 75
+    # humanoid
+    # action_space = 21
+    # observation_space = 75
+
+    # Unitree-H1
+    action_space = 19
+    observation_space = 69
     state_space = 0
 
     # simulation
@@ -48,29 +53,52 @@ class UnitreeH1Cfg(DirectRLEnvCfg):
     scene: InteractiveSceneCfg = InteractiveSceneCfg(num_envs=4096, env_spacing=4.0, replicate_physics=True)
 
     # robot
-    robot: ArticulationCfg = HUMANOID_CFG.replace(prim_path="/World/envs/env_.*/Robot")
+    # robot: ArticulationCfg = HUMANOID_CFG.replace(prim_path="/World/envs/env_.*/Robot")
+    # joint_gears: list = [
+    #     67.5000,  # lower_waist
+    #     67.5000,  # lower_waist
+    #     67.5000,  # right_upper_arm
+    #     67.5000,  # right_upper_arm
+    #     67.5000,  # left_upper_arm
+    #     67.5000,  # left_upper_arm
+    #     67.5000,  # pelvis
+    #     45.0000,  # right_lower_arm
+    #     45.0000,  # left_lower_arm
+    #     45.0000,  # right_thigh: x
+    #     135.0000,  # right_thigh: y
+    #     45.0000,  # right_thigh: z
+    #     45.0000,  # left_thigh: x
+    #     135.0000,  # left_thigh: y
+    #     45.0000,  # left_thigh: z
+    #     90.0000,  # right_knee
+    #     90.0000,  # left_knee
+    #     22.5,  # right_foot
+    #     22.5,  # right_foot
+    #     22.5,  # left_foot
+    #     22.5,  # left_foot
+    # ]
+    # Unitree-H1 robot
+    robot: ArticulationCfg = H1_CFG.replace(prim_path="/World/envs/env_.*/Robot")
     joint_gears: list = [
-        67.5000,  # lower_waist
-        67.5000,  # lower_waist
-        67.5000,  # right_upper_arm
-        67.5000,  # right_upper_arm
-        67.5000,  # left_upper_arm
-        67.5000,  # left_upper_arm
-        67.5000,  # pelvis
-        45.0000,  # right_lower_arm
-        45.0000,  # left_lower_arm
-        45.0000,  # right_thigh: x
-        135.0000,  # right_thigh: y
-        45.0000,  # right_thigh: z
-        45.0000,  # left_thigh: x
-        135.0000,  # left_thigh: y
-        45.0000,  # left_thigh: z
-        90.0000,  # right_knee
-        90.0000,  # left_knee
-        22.5,  # right_foot
-        22.5,  # right_foot
-        22.5,  # left_foot
-        22.5,  # left_foot
+        50.0,  # left_hip_yaw
+        50.0,  # right_hip_yaw
+        50.0,  # torso
+        50.0,  # left_hip_roll
+        50.0,  # right_hip_roll
+        50.0,  # left_shoulder_pitch
+        50.0,  # right_shoulder_pitch
+        50.0,  # left_hip_pitch
+        50.0,  # right_hip_pitch
+        50.0,  # left_shoulder_roll
+        50.0,  # right_shoulder_roll
+        50.0,  # left_knee
+        50.0,  # right_knee
+        50.0,  # left_shoulder_yaw
+        50.0,  # right_shoulder_yaw
+        50.0,  # left_ankle
+        50.0,  # right_ankle
+        50.0,  # left_elbow
+        50.0,  # right_elbow
     ]
 
     heading_weight: float = .5

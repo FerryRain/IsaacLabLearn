@@ -113,7 +113,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     env_cfg.seed = agent_cfg["params"]["seed"]
 
     # specify directory for logging experiments
-    log_root_path = os.path.join("../Create_a_Direct_Workflow_RL_Env/logs", "rl_games", agent_cfg["params"]["config"]["name"])
+    log_root_path = os.path.join("./logs", "rl_games", agent_cfg["params"]["config"]["name"])
     log_root_path = os.path.abspath(log_root_path)
     print(f"[INFO] Logging experiment in directory: {log_root_path}")
     # specify directory for logging runs

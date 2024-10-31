@@ -32,6 +32,12 @@ And then use command `pip install -e .` in the directory `./RL_Policy` to instal
         - rl_games_ppo_cfg.yaml
       - \_\_init\_\_.py: Setup the Shadowhands environment.
       - direct_rl_scene_Shadowhands_env.py: A more usefully env for RL scene create by direct RL env scene
+   - **unitree_H1**
+     - **agent**
+       - \_\_init\_\_.py: Setup the RL algorithm.
+       - rl_games_ppo_cfg.yaml
+     - \_\_init\_\_.py: Setup the Unitree-H1 running environment.
+     - direct_rl_scene_cartpole_env.py: Unitree-H1 Env Cfg
    - **utils**: tools about rl environment.
    - \_\_init\_\_.py: Create a python packet.
  - **Create_a_Manager_based_RL_Env**
