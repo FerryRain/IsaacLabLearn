@@ -1,4 +1,8 @@
 import argparse
+import sys
+from typing_extensions import overload
+
+
 
 
 def create_applauncher(parser: argparse.ArgumentParser):
@@ -9,12 +13,15 @@ def create_applauncher(parser: argparse.ArgumentParser):
              applauncher: Isaac Lab applauncher
              simulator: Isaac Lab simulator
     """
+    import sys
     from omni.isaac.lab.app import AppLauncher
 
     # append Applauncher cli args
     AppLauncher.add_app_launcher_args(parser)
     # parse arg
     args_cli = parser.parse_args()
+
+
     app_launcher = AppLauncher(args_cli)
     simulation_app = app_launcher.app
 
