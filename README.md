@@ -3,7 +3,6 @@
 Learn to Use IsaacLab and add some common utils for convenient using.
 
 And then use command `pip install -e .` in the directory `./RL_Policy` to install the packet to register the environment.
-`import Create_a_Direct_Workflow_RL_Env`
 ### Basic
  - 1_create_empty_world.py: How to create an Isaac sim launcher and simulation. 
  - 2_spawn_prims.py: How to generate different objects in the simulation.
@@ -35,10 +34,12 @@ And then use command `pip install -e .` in the directory `./RL_Policy` to instal
       - direct_rl_scene_Shadowhands_env.py: A more usefully env for RL scene create by direct RL env scene
    - **utils**: tools about rl environment.
    - \_\_init\_\_.py: Create a python packet.
-   - train_by_rl_games.py: train the RL agent for direct_cartpole_env
  - **Create_a_Manager_based_RL_Env**
    - 10.1 cartpole_env_cfg.py: Create a Manager RL Scene cfg class for cartpole env to train RL policy
    - 10.2 run_cartpole_rl_env: Run the sample action to the created cfg env.
+ - **Train**
+   - train_by_rl_games.py: Train the RL agent by rl-games.
+   - train_by_sb3.py: Train the RL agent by Stable-Baselines3.
  - pyproject.toml
  - setup.py
  - README.md: How to register a gymnasium environment.
