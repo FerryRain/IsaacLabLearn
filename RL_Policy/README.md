@@ -22,6 +22,12 @@ And then use command `pip install -e .` to install the packet.
 For use the gymnasium env, you need to import the root packet to register all of the env automatically like 
 `import Create_a_Direct_Workflow_RL_Env`
 
+## Now we have build the environment example below:
+  - **Isaac-UnitreeH1-Direct-v0**
+  - **Isaac-ShadowHands-Direct-v0**
+  - **Isaac-Humanoid-Mine-v0**
+  - **Isaac-Cartpole-Direct-Mine-v0**
+
 ### For setup.py file
 Build like below template.
 

@@ -17,7 +17,7 @@ from omni.isaac.lab.sim import SimulationCfg
 from omni.isaac.lab.terrains import TerrainImporterCfg
 from omni.isaac.lab.utils import configclass
 
-from omni.isaac.lab_tasks.direct.locomotion.locomotion_env import LocomotionEnv
+from Create_a_Direct_Workflow_RL_Env.Humanoid.LocomotionEnv import LocomotionEnv
 
 @configclass
 class UnitreeH1Cfg(DirectRLEnvCfg):
