@@ -7,7 +7,7 @@
 """
 from __future__ import annotations
 
-from omni.isaac.lab_assets import HUMANOID_CFG, H1_CFG
+from omni.isaac.lab_assets import HUMANOID_CFG
 
 import omni.isaac.lab.sim as sim_utils
 from omni.isaac.lab.assets import ArticulationCfg
