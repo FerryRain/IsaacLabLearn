@@ -25,9 +25,6 @@ class UnitreeH1Cfg(DirectRLEnvCfg):
     episode_length_s = 15.0
     decimation = 2
     action_scale = 1.0
-    # humanoid
-    # action_space = 21
-    # observation_space = 75
 
     # Unitree-H1
     action_space = 19
@@ -53,30 +50,6 @@ class UnitreeH1Cfg(DirectRLEnvCfg):
     scene: InteractiveSceneCfg = InteractiveSceneCfg(num_envs=4096, env_spacing=4.0, replicate_physics=True)
 
     # robot
-    # robot: ArticulationCfg = HUMANOID_CFG.replace(prim_path="/World/envs/env_.*/Robot")
-    # joint_gears: list = [
-    #     67.5000,  # lower_waist
-    #     67.5000,  # lower_waist
-    #     67.5000,  # right_upper_arm
-    #     67.5000,  # right_upper_arm
-    #     67.5000,  # left_upper_arm
-    #     67.5000,  # left_upper_arm
-    #     67.5000,  # pelvis
-    #     45.0000,  # right_lower_arm
-    #     45.0000,  # left_lower_arm
-    #     45.0000,  # right_thigh: x
-    #     135.0000,  # right_thigh: y
-    #     45.0000,  # right_thigh: z
-    #     45.0000,  # left_thigh: x
-    #     135.0000,  # left_thigh: y
-    #     45.0000,  # left_thigh: z
-    #     90.0000,  # right_knee
-    #     90.0000,  # left_knee
-    #     22.5,  # right_foot
-    #     22.5,  # right_foot
-    #     22.5,  # left_foot
-    #     22.5,  # left_foot
-    # ]
     # Unitree-H1 robot
     robot: ArticulationCfg = H1_CFG.replace(prim_path="/World/envs/env_.*/Robot")
     joint_gears: list = [
