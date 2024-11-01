@@ -16,6 +16,10 @@ And then use command `pip install -e .` in the directory `./RL_Policy` to instal
  - 7_Create_an_interacting_scene.py: How to Create a scene contain ground, light and objects.
  - 8_Create_a_Manager_Based_env.py: How to create a scene used manager scene class for cartpole env.
  - 9_Create_a_Manager_Env_for_Quadruped.py: Like tutorial 8, but change the env to quadruped.
+### Sensor
+ - Add_sensors_on_robot.py: How to add sensors on robot.
+### Control_Robot_by_End_Efforts_Controller [Jacobian Controller (End-Efforts Controller)]
+ - run_diff_ik.py: Controlling Robot by Task end-efforts pose controller rather than joint positions controller.
 ### RL_Policy (python packet)
  - **config**
    - extension.toml
@@ -37,7 +41,14 @@ And then use command `pip install -e .` in the directory `./RL_Policy` to instal
        - \_\_init\_\_.py: Setup the RL algorithm.
        - rl_games_ppo_cfg.yaml
      - \_\_init\_\_.py: Setup the Unitree-H1 running environment.
-     - direct_rl_scene_cartpole_env.py: Unitree-H1 Env Cfg
+     - Unitree.py: Unitree-H1 Env Cfg
+   - **Humanoid**
+     - **agent**
+       - \_\_init\_\_.py: Setup the RL algorithm.
+       - rl_games_ppo_cfg.yaml
+     - \_\_init\_\_.py: Setup the Humanoid running environment.
+     - Humanoid.py: Humanoid Env Cfg
+     - LocomotionEnv.py: Base class of the humanlike robot.
    - **utils**: tools about rl environment.
    - \_\_init\_\_.py: Create a python packet.
  - **Create_a_Manager_based_RL_Env**
@@ -50,6 +61,11 @@ And then use command `pip install -e .` in the directory `./RL_Policy` to instal
  - setup.py
  - README.md: How to register a gymnasium environment.
 
+### Now we have build the environment example below:
+  - **Isaac-UnitreeH1-Direct-v0**
+  - **Isaac-ShadowHands-Direct-v0**
+  - **Isaac-Humanoid-Mine-v0**
+  - **Isaac-Cartpole-Direct-Mine-v0**
 
 ---
 # Isaac Lab
