@@ -6,10 +6,6 @@
 @Copyright：©2024-2024 ShanghaiTech University-RIMLAB
 """
 
-# Copyright (c) 2022-2024, The Isaac Lab Project Developers.
-# All rights reserved.
-#
-# SPDX-License-Identifier: BSD-3-Clause
 
 
 from omni.isaac.lab_assets.shadow_hand import SHADOW_HAND_CFG
@@ -28,10 +24,9 @@ from omni.isaac.lab.utils import configclass
 from omni.isaac.lab.utils.assets import ISAAC_NUCLEUS_DIR
 from omni.isaac.lab.utils.noise import GaussianNoiseCfg, NoiseModelWithAdditiveBiasCfg
 
-
 @configclass
 class EventCfg:
-    """Configuration for randomization."""
+    """ Configuration for randomization. """
 
     # -- robot
     robot_physics_material = EventTerm(
@@ -121,7 +116,6 @@ class EventCfg:
         },
     )
 
-
 @configclass
 class ShadowHandEnvCfg(DirectRLEnvCfg):
     # env
@@ -133,7 +127,6 @@ class ShadowHandEnvCfg(DirectRLEnvCfg):
     asymmetric_obs = False
     obs_type = "full"
 
-    # simulation
     sim: SimulationCfg = SimulationCfg(
         dt=1 / 120,
         render_interval=decimation,
@@ -145,6 +138,7 @@ class ShadowHandEnvCfg(DirectRLEnvCfg):
             bounce_threshold_velocity=0.2,
         ),
     )
+
     # robot
     robot_cfg: ArticulationCfg = SHADOW_HAND_CFG.replace(prim_path="/World/envs/env_.*/Robot").replace(
         init_state=ArticulationCfg.InitialStateCfg(
@@ -202,6 +196,7 @@ class ShadowHandEnvCfg(DirectRLEnvCfg):
         ),
         init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, -0.39, 0.6), rot=(1.0, 0.0, 0.0, 0.0)),
     )
+
     # goal object
     goal_object_cfg: VisualizationMarkersCfg = VisualizationMarkersCfg(
         prim_path="/Visuals/goal_marker",
@@ -212,7 +207,7 @@ class ShadowHandEnvCfg(DirectRLEnvCfg):
             )
         },
     )
-    # scene
+
     scene: InteractiveSceneCfg = InteractiveSceneCfg(num_envs=8192, env_spacing=0.75, replicate_physics=True)
 
     # reset
@@ -233,59 +228,3 @@ class ShadowHandEnvCfg(DirectRLEnvCfg):
     av_factor = 0.1
     act_moving_average = 1.0
     force_torque_obs_scale = 10.0
-
-
-@configclass
-class ShadowHandOpenAIEnvCfg(ShadowHandEnvCfg):
-    # env
-    decimation = 3
-    episode_length_s = 8.0
-    action_space = 20
-    observation_space = 42
-    state_space = 187
-    asymmetric_obs = True
-    obs_type = "openai"
-    # simulation
-    sim: SimulationCfg = SimulationCfg(
-        dt=1 / 60,
-        render_interval=decimation,
-        physics_material=RigidBodyMaterialCfg(
-            static_friction=1.0,
-            dynamic_friction=1.0,
-        ),
-        physx=PhysxCfg(
-            bounce_threshold_velocity=0.2,
-            gpu_max_rigid_contact_count=2**23,
-            gpu_max_rigid_patch_count=2**23,
-        ),
-    )
-    # reset
-    reset_position_noise = 0.01  # range of position at reset
-    reset_dof_pos_noise = 0.2  # range of dof pos at reset
-    reset_dof_vel_noise = 0.0  # range of dof vel at reset
-    # reward scales
-    dist_reward_scale = -10.0
-    rot_reward_scale = 1.0
-    rot_eps = 0.1
-    action_penalty_scale = -0.0002
-    reach_goal_bonus = 250
-    fall_penalty = -50
-    fall_dist = 0.24
-    vel_obs_scale = 0.2
-    success_tolerance = 0.4
-    max_consecutive_success = 50
-    av_factor = 0.1
-    act_moving_average = 0.3
-    force_torque_obs_scale = 10.0
-    # domain randomization config
-    events: EventCfg = EventCfg()
-    # at every time-step add gaussian noise + bias. The bias is a gaussian sampled at reset
-    action_noise_model: NoiseModelWithAdditiveBiasCfg = NoiseModelWithAdditiveBiasCfg(
-        noise_cfg=GaussianNoiseCfg(mean=0.0, std=0.05, operation="add"),
-        bias_noise_cfg=GaussianNoiseCfg(mean=0.0, std=0.015, operation="abs"),
-    )
-    # at every time-step add gaussian noise + bias. The bias is a gaussian sampled at reset
-    observation_noise_model: NoiseModelWithAdditiveBiasCfg = NoiseModelWithAdditiveBiasCfg(
-        noise_cfg=GaussianNoiseCfg(mean=0.0, std=0.002, operation="add"),
-        bias_noise_cfg=GaussianNoiseCfg(mean=0.0, std=0.0001, operation="abs"),
-    )
